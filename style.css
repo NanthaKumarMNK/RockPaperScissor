@@ -1,0 +1,276 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-color:  #8CC461;
+    color: white;
+}
+
+/* HEADER */
+
+header{
+    width: 50rem;
+    height: 9.9rem;
+    border:3px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    margin-top: 3rem;
+}
+.heading{
+    width: 30%;
+    height: 90%;
+    margin-top: 3px;
+    margin-left: 10px;
+      
+    font-family: Roboto, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 47px;
+    letter-spacing: 0.1em;
+    text-align: left;
+
+}
+.scoreBlock{
+    width: 40%;
+    height: 90%;
+    margin-top: 8px;
+    margin-right: 8px;
+    display: flex;
+    text-align: center;
+    justify-content:space-between ;
+    color: black !important;
+}
+.Score{
+    background-color: white; 
+    width: 45%;
+    border-radius: 10px;
+}
+.Score p{
+    margin-top: 10px;
+    color: #656565 ;
+
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.1em;
+}
+.scoreCount{
+    width: 100%;
+    height: 60%;
+    margin: auto;
+    color: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scoreCount p{
+    margin-left: 10px;
+    color: black;
+    
+    font-family: Roboto;
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 47px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+/* body */
+.option{
+    margin: auto;
+    margin-top: 5%;
+    width: 22rem;
+    height: 19rem;
+    position: relative;
+}
+.option .line{
+    background-color:  #000000A3;
+    width: 10rem;
+    height: 1.5rem;
+    position: absolute;
+}
+.line1{
+    top: 14%;
+    left: 28%;
+}
+.line2{
+    top: 50%;
+    left: 8%;
+    transform:rotate(55deg)
+}
+.line3{
+    top: 50%;
+    left: 42%;
+    transform:rotate(-55deg)
+}
+.option .image{
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rock, .paper,.scissor{
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 3px 0px 21px 1px #00000033 inset;
+
+}
+.rock{
+    border: 16px solid  #0074B6;
+    position: absolute;
+}
+.paper{
+    border: 16px solid  #FFA943;
+    position: absolute;
+    bottom: 0;
+    left: 33%;
+}
+.scissor{
+    border: 16px solid  #BD00FF;
+    position: absolute;
+    right: 0;
+}
+
+
+
+/* RULES */
+.closebar{
+    position: fixed;
+    
+    top: 277px;
+    right: 40px;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 5px solid white;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-family: Dangrek;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 79px;
+}
+
+.rules{
+    position: fixed;
+    top: 300px;
+    right: 64px;
+    width: 18rem;
+    height: 19rem;
+    border-radius: 13px;
+    border: 7px solid white;
+    background-color: #004429;
+
+}
+
+.rules h1{
+    margin-top: 14px;
+
+
+    font-family: Roboto;
+    font-size: 29px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+ul{
+    width: 80%;
+    height: 80%;
+    margin-left: 35px;
+}
+li{
+    list-style:square;
+    margin-top: 15px;
+    list-style-position: outside;
+
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+
+}
+/* BUTTONS */
+.buttons{
+    display: flex;
+    justify-content: end;
+    width: 14.5rem;
+    height: 2.5rem;
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+}
+.rButton,.nButton{
+    
+    border:2px solid white;
+    border-radius: 10px;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Roboto;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    text-align: left;
+
+}
+.rButton{
+    margin-right: 30px;
+}
+
+/* winning */
+.win{
+    width: 35%;
+    height: 550px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
+    background-color: #0074B6;
+    
+}
+.Image{
+    width: 90%;
+    height: 60%;
+    position: relative;
+    background-color: #656565;
+    margin: auto;
+}
+
+.Image img{
+    position: absolute;
+}
+
+.hurry{
+
+    font-family: Roboto;
+    font-size: 91px;
+    font-weight: 600;
+    line-height: 107px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+.gameWon{
+    font-family: Roboto;
+    font-size: 41px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
