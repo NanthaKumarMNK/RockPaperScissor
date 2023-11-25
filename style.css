@@ -82,6 +82,7 @@ header{
 }
 
 /* body */
+
 .option{
     margin: auto;
     margin-top: 5%;
@@ -138,6 +139,114 @@ header{
     right: 0;
 }
 
+/* RESULT */
+
+.result{
+    margin: auto;
+    margin-top: 5%;
+    width: 60vw;
+    height: 22rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+.youSelected, .pcSelected{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.youSelected p, .pcSelected p{
+    margin-bottom: 50px;
+}
+
+.selected{
+    background-color: white;
+    width: 8.75rem;
+    height: 8.75rem;
+    border: 16px solid bisque;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 1px 62px 0px #00000021;
+}
+
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.comment .head{
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 46px;
+    letter-spacing: 0.1em;
+    text-align: center;
+
+}
+.comment p{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 29px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-top: 20px;
+
+}
+.playAgain{
+    width: 174px;
+    height: 44px;
+    border-radius: 9px;
+    text-align: center;
+    margin-top: 20px;
+    border:2px solid white;
+    color:  #6B6B6B;
+    background-color: white ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bordercolor{
+    position: absolute;
+}
+.border1{
+    border:1rem solid #2E9A2563;
+    width: 16.75rem;
+    height: 16.75rem;
+    border-radius: 50%;
+    position: absolute;
+}
+.border2{
+    border: 1rem solid #1DA82BC9;
+    width: 14.75rem;
+    height: 14.75rem;
+    border-radius: 50%;
+    position: absolute;
+}
+.border3{
+    border:2rem solid #3B6720;
+    width: 12.75rem;
+    height: 12.75rem;
+    border-radius: 50%;
+    position: absolute;
+}
+.Iwon{
+    top: 76px;
+    left: 11px;
+}
+.Pcwon{
+    top: 76px;
+    right: 279px;
+
+}
 
 
 /* RULES */
@@ -161,7 +270,15 @@ header{
     font-weight: 400;
     line-height: 79px;
 }
-
+ul {list-style: none}
+ul li::before{
+    color: #FFD600;
+    content: "\25AA";
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
 .rules{
     position: fixed;
     top: 300px;
@@ -191,9 +308,8 @@ ul{
     margin-left: 35px;
 }
 li{
-    list-style:square;
     margin-top: 15px;
-    list-style-position: outside;
+    
 
     font-family: Roboto;
     font-size: 13px;
@@ -240,23 +356,54 @@ li{
     margin: auto;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    margin-top: 5%;
-    background-color: #0074B6;
-    
+    margin-top: 5%;   
 }
 .Image{
     width: 90%;
     height: 60%;
     position: relative;
-    background-color: #656565;
     margin: auto;
 }
 
-.Image img{
+.S1,.S2,.S3,.S4,.S5,.S6,.S7,.S8,.Vector{
     position: absolute;
 }
-
+.Vector{
+    bottom: 0;
+    left: 30%;
+}
+.S1{
+    top: 36%;
+}
+.S2{
+    top:5%;
+    left: 63%;
+}
+.S3{
+    left:18%;
+    top:15%;
+}
+.S4{
+    bottom: 6%;
+    left:22%;
+}
+.S5{
+    left: 28%;
+}
+.S6{
+    bottom: 8%;
+    right: 0;
+}
+.S7{
+    top: 25%;
+    left: 43%;
+}
+.S8{
+    top: 35%;
+    right: 8%;
+}
 .hurry{
 
     font-family: Roboto;
@@ -274,3 +421,19 @@ li{
     letter-spacing: 0.1em;
     text-align: center;
 }
+.win .playAgain{
+    margin: auto;
+    margin-top: 50px;
+}
+
+/* Display */
+.result,.win,.bordercolor,.nButton,.gameRules,.title1,.option1,.title,.option{
+    display: none;
+}
+.result1{
+    display: flex;
+}
+.win1,.bordercolor1,.nButton1,.gameRules1,.win{
+    display: block;
+}
+
