@@ -116,12 +116,9 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.rock, .paper,.scissor{
     border-radius: 50%;
     background-color: white;
     box-shadow: 3px 0px 21px 1px #00000033 inset;
-
 }
 .rock{
     border: 16px solid  #0074B6;
@@ -165,13 +162,13 @@ header{
     background-color: white;
     width: 8.75rem;
     height: 8.75rem;
-    border: 16px solid bisque;
+    border: 16px solid;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0px 1px 62px 0px #00000021;
+    box-shadow: 0px 1px 62px 0px #a49d9d21;
 }
 
 
@@ -200,7 +197,7 @@ header{
     margin-top: 20px;
 
 }
-.playAgain{
+.playAgain1,.playAgain2{
     width: 174px;
     height: 44px;
     border-radius: 9px;
@@ -244,7 +241,7 @@ header{
 }
 .Pcwon{
     top: 76px;
-    right: 279px;
+    right: 276px;
 
 }
 
@@ -271,6 +268,7 @@ header{
     line-height: 79px;
 }
 ul {list-style: none}
+
 ul li::before{
     color: #FFD600;
     content: "\25AA";
@@ -421,19 +419,21 @@ li{
     letter-spacing: 0.1em;
     text-align: center;
 }
-.win .playAgain{
+.playAgain2{
     margin: auto;
     margin-top: 50px;
 }
 
 /* Display */
-.result,.win,.bordercolor,.nButton,.gameRules,.title1,.option1,.title,.option{
+
+
+.result,.win,.bordercolor,.nButton,.title1,.gameRules,.option1{
     display: none;
 }
-.result1{
+.result1,.gameRules1,.nButton1{
     display: flex;
 }
-.win1,.bordercolor1,.nButton1,.gameRules1,.win{
+.win1,.bordercolor1{
     display: block;
 }
 
