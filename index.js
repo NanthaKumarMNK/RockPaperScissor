@@ -1,9 +1,33 @@
+// Selection
 
-// Rules Button 
-
+let nButton=document.querySelector('.nButton')
 let rules =document.querySelector(".rButton");
 let closebar=document.querySelector('.closebar');
 let gameRules=document.querySelector('.gameRules');
+let win=document.querySelector('.win')
+let title=document.querySelector('.title')
+let playAgain=document.querySelector('.comment .playAgain1')
+let playagain=document.querySelector('.playAgain2')
+let bordercolor=document.querySelector('.bordercolor')
+let PcScore=document.querySelector('.cScore')
+let UserScore=document.querySelector('.mScore')
+let head=document.querySelector('.head')
+let option=document.querySelector('.option')
+let RPS=document.querySelectorAll('.img');
+let result=document.querySelector('.result')
+
+// Local Storage
+
+// Initialize scores
+let LS_US = localStorage.getItem('userScore') || 0;
+let LS_PS = localStorage.getItem('pcScore') || 0;
+
+// Display the initial scores
+UserScore.innerHTML = LS_US;
+PcScore.innerHTML = LS_PS;
+
+// Rules Button 
+
 rules.addEventListener('click',()=>{
     gameRules.classList.add('gameRules1');
 })
@@ -11,161 +35,104 @@ closebar.addEventListener('click',()=>{
 gameRules.classList.remove('gameRules1');
 })
 
+// Next Button
 
+nButton.addEventListener('click',()=>{
+    win.classList.add('win1')
+    result.classList.remove('result1')
+    title.classList.add('title1')
+    nButton.classList.remove('nButton1')
+})
 
-
-// Options 
-
-
-let option=document.querySelector('.option')
-let RPS=document.querySelectorAll('.image');
-let result=document.querySelector('.result')
-let arr=Array.from(RPS)
-arr.forEach((buttons)=>{
-    buttons.addEventListener('click',(e)=>{
+RPS.forEach((buttons)=>{
+    buttons.addEventListener('click',()=>{
         option.classList.add('option1');
         result.classList.add('result1');
-        let disp= buttons.querySelector('img');
-            
-        // Result
+
+        User=buttons.alt;
+
+        arr=['Rock','Paper','Scissor']
+        Pc=arr[Math.floor(Math.random()*arr.length)]
+
+        let User_Selected=document.getElementById("USER")
+        let Pc_Selected=document.getElementById("PC")
+
+        Pc_Selected.src=`${Pc}.png`
+        User_Selected.src=`${User}.png`
 
         //User
-
-        let youSelectedimg=document.querySelector('.youSelected .selected img')
-        let pcSelectedimg=document.querySelector('.pcSelected .selected img')
-        let youSelected=document.querySelector('.youSelected .selected')
-        let pcSelected=document.querySelector('.pcSelected .selected')
-        let head=document.querySelector('.head')
-        let playAgain=document.querySelector('.comment .playAgain1')
-        let playagain=document.querySelector('.playAgain2')
-        let compScore=document.querySelector('.cScore')
-        let userScore=document.querySelector('.mScore')
-        let nButton=document.querySelector('.nButton')
-        let bordercolor=document.querySelector('.bordercolor')
-        let win=document.querySelector('.win')
-        let title=document.querySelector('.title')
-        let Rock=document.querySelector('.rock')
-        let Paper=document.querySelector('.paper')
-        let Scissor=document.querySelector('.scissor')
-
-            youSelectedimg.remove()
-            youSelected.append(disp)
-
-        //PC
-        let randomNo=Math.floor(Math.random() * 3);
-        if (randomNo==0){
-            pcSelectedimg.src='Rock'+'.png'
-        }
-        else if(randomNo==1){
-            pcSelectedimg.src='Paper'+'.png'
-        }
-        else{
-            pcSelectedimg.src='Scissor'+'.png'
-        }
+        let UserSelected=document.querySelector('.youSelected .selected')
+        let PcSelected=document.querySelector('.pcSelected .selected')
 
         // Score
+        
+        head.innerHTML="YOU LOSE"
+        
 
-        if (pcSelectedimg.src==disp.src){
+        if (User==Pc){
             head.innerHTML="TIED UP"
-        }
-
-        else{
-            if (pcSelectedimg.src.includes('Rock.png')==true){
-                playAgain.innerHTML='PLAY AGAIN'
-                if (disp.src.includes('Scissor.png')==true){
-                    head.innerHTML="YOU LOSE"
-                }
-                else{
-                    head.innerHTML="YOU WIN"
-                }
-
-            }
-            if (pcSelectedimg.src.includes('Scissor.png')==true){
-                if (disp.src.includes('Rock.png')==true){
-                    head.innerHTML="YOU WIN"                
-                }
-                else{
-                    head.innerHTML="YOU LOSE"
-                }
-
-            }
-            if (pcSelectedimg.src.includes('Paper.png')==true){
-                if (disp.src.includes('Scissor.png')==true){
-                    head.innerHTML="YOU WIN"                
-                }
-                else{
-                        head.innerHTML="YOU LOSE"
-                    }
-            }
-        }
-
-        // Score count
-        let count=0
-
-        if(head.innerHTML=="TIED UP"){
             playAgain.innerHTML='REPLAY'
         }
-        else if(head.innerHTML=="YOU WIN"){
-            userScore.innerHTML=count+=1
+
+        else if ((User === 'Rock' && Pc === 'Scissor') ||
+        (User === 'Paper' && Pc === 'Rock') ||
+        (User === 'Scissor' && Pc === 'Paper'))
+        {
+            playAgain.innerHTML='PLAY AGAIN'
+            head.innerHTML="YOU WIN"
+            UserScore.innerHTML++
             nButton.classList.add('nButton1')
             bordercolor.classList.add('bordercolor1')
             bordercolor.classList.add('Iwon')
-        }
+                }
         else{
-            compScore.innerHTML=count+=1
+            head.innerHTML="YOU LOSE"
+            playAgain.innerHTML='PLAY AGAIN'
+            
+            PcScore.innerHTML++
             bordercolor.classList.add('Pcwon')
             bordercolor.classList.add('bordercolor1')
-        }
-        // Next Button
+            }
 
-        nButton.addEventListener('click',()=>{
-            win.classList.add('win1')
-            result.classList.remove('result1')
-            title.classList.add('title1')
+// Play Again
+
+playAgain.addEventListener('click',()=>{
+    option.classList.remove('option1')
+    result.classList.remove('result1')
+    nButton.classList.remove('nButton1')
+})
+
+playagain.addEventListener('click',()=>{
+    win.classList.remove('win1')
+    option.classList.remove('option1')
+    nButton.classList.remove('nButton1')
+    title.classList.remove('title1')
 })
 
         
+        // // Border color
 
-        // Play Again
-
-        playAgain.addEventListener('click',()=>{
-            option.classList.remove('option1')
-            result.classList.remove('result1')
-            nButton.classList.remove('nButton1')
-
-        })
-
-        playagain.addEventListener('click',()=>{
-            win.classList.remove('win1')
-            option.classList.remove('option1')
-            nButton.classList.remove('nButton1')
-            title.classList.remove('title1')
-        })
-
-        
-        // Border color
-
-        if (pcSelectedimg.src.includes('Rock.png')==true){
-            pcSelected.style.borderColor='#0074B6' 
+        if (Pc=='Rock'){
+            PcSelected.style.borderColor='#0074B6' 
         }
-        if(pcSelectedimg.src.includes('Scissor.png')==true){   
-            pcSelected.style.borderColor='#BD00FF'
+        if(Pc=='Scissor'){   
+            PcSelected.style.borderColor='#BD00FF'
         }
-        if(pcSelectedimg.src.includes('Paper.png')==true){ 
-            pcSelected.style.borderColor='#FFA943'
+        if(Pc=='Paper'){ 
+            PcSelected.style.borderColor='#FFA943'
         }
-        if (disp.src.includes('Rock.png')==true){
-            youSelected.style.borderColor='#0074B6'
+        if (User=='Rock'){
+            UserSelected.style.borderColor='#0074B6'
         }
-        if(disp.src.includes('Scissor.png')==true){
-            youSelected.style.borderColor='#BD00FF'
+        if(User=='Scissor'){
+            UserSelected.style.borderColor='#BD00FF'
         }
-        if (disp.src.includes('Paper.png')==true){
-            youSelected.style.borderColor='#FFA943' 
+        if (User=='Paper'){
+            UserSelected.style.borderColor='#FFA943' 
         }
 
     })
-    
+
 
 }
 )
