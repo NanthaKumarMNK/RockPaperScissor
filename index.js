@@ -16,15 +16,6 @@ let option=document.querySelector('.option')
 let RPS=document.querySelectorAll('.img');
 let result=document.querySelector('.result')
 
-// Local Storage
-
-// Initialize scores
-let LS_US = localStorage.getItem('userScore') || 0;
-let LS_PS = localStorage.getItem('pcScore') || 0;
-
-// Display the initial scores
-UserScore.innerHTML = LS_US;
-PcScore.innerHTML = LS_PS;
 
 // Rules Button 
 
@@ -44,10 +35,42 @@ nButton.addEventListener('click',()=>{
     nButton.classList.remove('nButton1')
 })
 
+// Play Again Button
+
+playAgain.addEventListener('click',()=>{
+    option.classList.remove('option1')
+    result.classList.remove('result1')
+    nButton.classList.remove('nButton1')
+    bordercolor.classList.remove('Pcwon')
+    bordercolor.classList.remove('bordercolor1')
+    bordercolor.classList.remove('Iwon')
+    document.querySelector('.comment p').innerHTML='AGAINST PC'
+})
+
+playagain.addEventListener('click',()=>{
+    win.classList.remove('win1')
+    option.classList.remove('option1')
+    nButton.classList.remove('nButton1')
+    title.classList.remove('title1')
+    bordercolor.classList.remove('Pcwon')
+    bordercolor.classList.remove('bordercolor1')
+    bordercolor.classList.remove('Iwon')
+    document.querySelector('.comment p').innerHTML='AGAINST PC'
+})
+
+// Local Storage
+document.addEventListener("DOMContentLoaded", ()=> {
+    
+    PcScore.innerHTML = localStorage.getItem("PcScore") || 0;
+    UserScore.innerHTML = localStorage.getItem("UserScore") || 0;
+  
+
 RPS.forEach((buttons)=>{
     buttons.addEventListener('click',()=>{
         option.classList.add('option1');
         result.classList.add('result1');
+
+// Selecting
 
         User=buttons.alt;
 
@@ -60,18 +83,15 @@ RPS.forEach((buttons)=>{
         Pc_Selected.src=`${Pc}.png`
         User_Selected.src=`${User}.png`
 
-        //User
         let UserSelected=document.querySelector('.youSelected .selected')
         let PcSelected=document.querySelector('.pcSelected .selected')
 
-        // Score
-        
-        head.innerHTML="YOU LOSE"
-        
+// Score
 
         if (User==Pc){
             head.innerHTML="TIED UP"
             playAgain.innerHTML='REPLAY'
+            document.querySelector('.comment p').innerHTML=''
         }
 
         else if ((User === 'Rock' && Pc === 'Scissor') ||
@@ -88,29 +108,12 @@ RPS.forEach((buttons)=>{
         else{
             head.innerHTML="YOU LOSE"
             playAgain.innerHTML='PLAY AGAIN'
-            
             PcScore.innerHTML++
             bordercolor.classList.add('Pcwon')
             bordercolor.classList.add('bordercolor1')
             }
-
-// Play Again
-
-playAgain.addEventListener('click',()=>{
-    option.classList.remove('option1')
-    result.classList.remove('result1')
-    nButton.classList.remove('nButton1')
-})
-
-playagain.addEventListener('click',()=>{
-    win.classList.remove('win1')
-    option.classList.remove('option1')
-    nButton.classList.remove('nButton1')
-    title.classList.remove('title1')
-})
-
-        
-        // // Border color
+ 
+// Border color
 
         if (Pc=='Rock'){
             PcSelected.style.borderColor='#0074B6' 
@@ -130,12 +133,11 @@ playagain.addEventListener('click',()=>{
         if (User=='Paper'){
             UserSelected.style.borderColor='#FFA943' 
         }
+    // Update local_storage
 
-    })
-
-
-}
-)
-
-
+    localStorage.setItem("UserScore",UserScore.innerHTML);
+    localStorage.setItem("PcScore", PcScore.innerHTML);
+  });
+});
+});
 
